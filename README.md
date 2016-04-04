@@ -1,3 +1,3 @@
 # AngularJS
 Tečaj AngularJS
-Vaje
+Vaje s tečaja
