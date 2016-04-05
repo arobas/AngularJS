@@ -1,5 +1,3 @@
-<html>
-<script>
     var ugani;
     var stevilo = Math.round(Math.random()*100);
     //alert(stevilo);
@@ -14,5 +12,3 @@
     }
     alert('Uganil si. Iskano stevilo je ' + stevilo + '.');
     
-</script>
-</html>
