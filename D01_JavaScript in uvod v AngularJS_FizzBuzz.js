@@ -1,5 +1,3 @@
-<html>
-<script>
     var izpis = [];
     var stevilo = prompt('Vpisi stevilo:');
     if (stevilo < 1) {
@@ -23,6 +21,3 @@
 
     alert(izpis);
     }
-</script>
-
-</html>
