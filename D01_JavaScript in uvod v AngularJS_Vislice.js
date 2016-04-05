@@ -1,5 +1,3 @@
-<html>
-    <script>
         var besede = ['lestev','morje','drevo','avtomobil','televizija','stopnice','stolpnica','malahaja','tatamata'];
         var beseda;
         var IzbranaBeseda;
@@ -49,5 +47,3 @@
         else {
             alert('Nisi uganil! \nIskana beseda je bila ' + beseda);
         }
-    </script>
-</html>
