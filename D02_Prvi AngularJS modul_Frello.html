@@ -1,0 +1,58 @@
+<html>
+
+<head>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  
+  <script>
+  
+    angular.module('app', []);
+
+    angular.module('app').controller('MainController', function($scope){
+  
+    $scope.newTodo = {body: 'Default', isCompleted: true};
+  
+    $scope.todos = [];
+  
+    $scope.addTodo = function(Todo)
+    {
+        $scope.todos.push(Todo);
+        $scope.newTodo = {body: '', isCompleted: true};
+    }
+    
+    });
+  
+  </script>
+</head>
+
+<body ng-app="app">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 well" ng-controller="MainController">
+        <h1>Frello</h1>
+        <!--pre>{{newTodo}}</pre-->
+        
+        <!--pre>{{ todos }}</pre-->
+        
+        <!--input type="textarea" ng-model="newTodo.body" /-->
+        <textarea rows="3" cols="50"  ng-model="newTodo.body"></textarea>
+        
+        <button class="btn btn-primary" ng-click="addTodo(newTodo)">Dodaj</button>
+      
+         <div ng-repeat="todo in todos"> 
+          <input type="checkbox" ng-model="todo.isCompleted" />Koncan&nbsp;&nbsp;&nbsp;<input type="checkbox" ng-model="show" />Skrij
+          <h3 ng-hide="show">{{ todo.body }}</h3>
+        </div>
+      
+      </div>
+      
+      
+    </div>
+  </div>
+</body>
+</html>
