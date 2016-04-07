@@ -22,7 +22,7 @@
     $scope.addTodo = function(Todo)
     {
         if($scope.todos.some(x=>x.body == Todo.body)) {
-            alert("že obstaja todo");
+            alert("Todo že obstaja.");
             return;
         }
         $scope.todos.push(Todo);
@@ -48,12 +48,12 @@
           <button class="btn btn-primary" ng-click="addTodo(newTodo)" ng-disabled="!newTodo.body">Dodaj</button>
       
           <div ng-repeat="(key, todo) in todos"> 
-            <label><input type="checkbox" ng-model="todo.isCompleted" />Koncan</label>&nbsp;&nbsp;&nbsp;
+            <label><input type="checkbox" ng-model="todo.isCompleted" />Končan</label>&nbsp;&nbsp;&nbsp;
               <label><input type="checkbox" ng-model="hide" />Skrij</label>
             <h3 ng-hide="hide || !todo.isCompleted">{{ todo.body }}</h3>
             <input type="text" ng-hide="todo.isCompleted" ng-model="todo.body">
-            <!--input type="button" value="Izbrisi" ng-click="removeTodo(key)"-->
-              <a ng-click="removeTodo(key)">Izbrisi</a>
+            <!--input type="button" value="Izbriši" ng-click="removeTodo(key)"-->
+              <a ng-click="removeTodo(key)">Izbriši</a>
            </div>
         </div>
     </div>
