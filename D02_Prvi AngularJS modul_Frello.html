@@ -21,9 +21,17 @@
   
     $scope.addTodo = function(Todo)
     {
+        if($scope.todos.some(x=>x.body == Todo.body)) {
+            alert("že obstaja todo");
+            return;
+        }
         $scope.todos.push(Todo);
         $scope.newTodo = {body: '', isCompleted: true};
-    }
+    };
+    
+    $scope.removeTodo = function(key) {
+        $scope.todos.splice(key, 1);
+    };
     
     });
   
@@ -35,22 +43,19 @@
     <div class="row">
       <div class="col-xs-12 well" ng-controller="MainController">
         <h1>Frello</h1>
-        <!--pre>{{newTodo}}</pre-->
-        
-        <!--pre>{{ todos }}</pre-->
-        
-        <textarea rows="3" cols="50"  ng-model="newTodo.body"></textarea>
-        
-        <button class="btn btn-primary" ng-click="addTodo(newTodo)">Dodaj</button>
+         <textarea rows="3" cols="50"  ng-model="newTodo.body"></textarea>
+ 
+          <button class="btn btn-primary" ng-click="addTodo(newTodo)" ng-disabled="!newTodo.body">Dodaj</button>
       
-         <div ng-repeat="todo in todos"> 
-          <input type="checkbox" ng-model="todo.isCompleted" />Koncan&nbsp;&nbsp;&nbsp;<input type="checkbox" ng-model="show" />Skrij
-          <h3 ng-hide="show">{{ todo.body }}</h3>
+          <div ng-repeat="(key, todo) in todos"> 
+            <label><input type="checkbox" ng-model="todo.isCompleted" />Koncan</label>&nbsp;&nbsp;&nbsp;
+              <label><input type="checkbox" ng-model="hide" />Skrij</label>
+            <h3 ng-hide="hide || !todo.isCompleted">{{ todo.body }}</h3>
+            <input type="text" ng-hide="todo.isCompleted" ng-model="todo.body">
+            <!--input type="button" value="Izbrisi" ng-click="removeTodo(key)"-->
+              <a ng-click="removeTodo(key)">Izbrisi</a>
+           </div>
         </div>
-      
-      </div>
-      
-      
     </div>
   </div>
 </body>
