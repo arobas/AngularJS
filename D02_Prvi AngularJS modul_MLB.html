@@ -1,0 +1,48 @@
+<html>
+
+<head>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  
+  <script>
+  
+    angular.module('app', []);
+
+    angular.module('app').controller('MainController', function($scope){
+  
+    $scope.payment = {body: ''};
+    $scope.months = {body: ''};
+    $scope.rate = {body: ''};
+    $scope.paymentOut = {body: ''};
+    $scope.monthsOut = {body: ''};
+  
+    });
+  
+  </script>
+</head>
+
+<body ng-app="app">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 well" ng-controller="MainController">
+        <h1>MLB</h1>
+         <h2> Kalkulator varcevanja </h2>
+          Visina mesecnega vplacila: <input type="text" ng-model="payment.body" /><br>
+          Stevilo mesecev: <input type="text" ng-model="months.body" /><br>
+          Mesecna obrestna mera (v %): <input type="text" ng-model="rate.body" />
+          <pre>{{ payment.body *1 + (payment.body * months.body * rate.body / 1200)}}</pre><br><br>
+        
+          <h2> Kalkulator izplacil</h2>
+          Visina mesecnega izplacila: <input type="text" ng-model="paymentOut.body" /><br>
+          Stevilo mesecev: <input type="text" ng-model="monthsOut.body" /><br>
+          <pre>{{ paymentOut.body * monthsOut.body }}</pre>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
